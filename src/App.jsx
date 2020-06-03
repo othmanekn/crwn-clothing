@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import HomePage from "./pages/homepage/homepage";
 import { Switch, Route } from "react-router-dom";
-
-var hatPage = () => {
-  return <h1>Hat Page</h1>;
-};
+import shopPage from "./pages/shoppage/shop";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -12,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={hatPage} />
+          <Route path="/shop" component={shopPage} />
         </Switch>
       </div>
     );
