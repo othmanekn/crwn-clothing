@@ -78,6 +78,7 @@ class SignUp extends React.Component {
             name="password"
             handleChnage={this.onChange}
             label="Password"
+            minLength="6"
           />
           <FormInput
             type="password"
@@ -86,6 +87,7 @@ class SignUp extends React.Component {
             name="confirmPassword"
             handleChnage={this.onChange}
             label="Confirm password"
+            minLength="6"
           />
           <div className="buttons">
             <CustomButton type="submit">Sign Up</CustomButton>
