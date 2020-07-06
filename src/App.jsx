@@ -8,6 +8,7 @@ import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-actions";
+import CheckoutPage from "./pages/checkout/checkout";
 
 class App extends Component {
   unsbscribeFromAuth = null;
@@ -45,6 +46,7 @@ class App extends Component {
               this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />
             }
           />
+          <Route path="/checkout" component={CheckoutPage} />
           <Redirect to="/" />
         </Switch>
       </div>
