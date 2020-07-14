@@ -23,6 +23,13 @@ class App extends Component {
             id: snapShot.id,
             ...snapShot.data(),
           });
+          /* addCollectionAndDocuments(
+            "collections",
+            collections.map(({ title, items }) => ({
+              title,
+              items,
+            }))
+          ); */
         });
       } else setCurrentUser(userAuth);
     });
@@ -54,8 +61,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
