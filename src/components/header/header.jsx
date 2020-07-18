@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
 import CartDropwdown from "../cart-dropdown/cart-dropdown";
@@ -10,8 +9,9 @@ import {
   OptionsConatiner,
   Optionlink,
 } from "./header.styles";
+import { signOutStart } from "../../redux/user/user-actions";
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, signOut }) => (
   <HeaderContainer>
     <LogoConatiner to="/">
       <Logo className="logo" />
@@ -20,7 +20,7 @@ const Header = ({ currentUser, hidden }) => (
       <Optionlink to="/shop">SHOP</Optionlink>
       <Optionlink to="/contact">CONTACT</Optionlink>
       {currentUser ? (
-        <Optionlink as="div" onClick={() => auth.signOut()}>
+        <Optionlink as="div" onClick={signOut}>
           SIGN OUT
         </Optionlink>
       ) : (
@@ -37,4 +37,8 @@ const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
   hidden,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapsDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+});
+
+export default connect(mapStateToProps, mapsDispatchToProps)(Header);
