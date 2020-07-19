@@ -6,7 +6,6 @@ import {
   signOutFailuer,
   signUpFailure,
   signUpSuccess,
-  emailSignInStart,
 } from "./user-actions";
 import {
   auth,
